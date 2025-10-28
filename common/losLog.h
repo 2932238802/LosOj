@@ -1,13 +1,16 @@
 #pragma once
-
 #include <iostream>
 #include <ostream>
 #include <string>
 
-namespace MyLog {
+#include "losTime.h"
+
+#define DEBUG_TEST
+
+namespace LosCom {
 
 // 日志等级
-enum {
+enum LOG_LEVEL {
     INFO = 0,
     DEBUG,
     WARNING,
@@ -17,20 +20,29 @@ enum {
 
 // 日志输出
 using cs = const std::string&;
-std::ostream& Log(cs level, cs file_name, int line) {
+
+// 开放式 日志
+inline std::ostream& Log(cs level, cs file_name, int line) {
     std::string message = "[";
     message += level;
     message += "]";
-
     message += "[";
     message += file_name;
     message += "]";
-
     message += "[";
     message += std::to_string(line);
     message += "]";
+    message += "[";
+    message += Time::GetTimeStamp();
+    message += "]";
 
+    // cout 本身是保存 缓存区的
+    // 暂存到 cout
+    // 不着急 等下打印
+    std::cout << message;
     return std::cout;
 }
-
-}  // namespace MyLog
+#ifdef DEBUG_TEST
+#define LOG(level) Log(#level, __FILE__, __LINE__)
+#endif
+}  // namespace LosCom

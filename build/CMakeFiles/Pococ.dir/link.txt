@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Pococ.dir/main.cc.o CMakeFiles/Pococ.dir/common/losFile.cc.o CMakeFiles/Pococ.dir/common/losPath.cc.o CMakeFiles/Pococ.dir/common/losTime.cc.o CMakeFiles/Pococ.dir/compileServer/compiler.cc.o CMakeFiles/Pococ.dir/compileServer/compileAndRun.cc.o -o Pococ 

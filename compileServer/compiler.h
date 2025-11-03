@@ -13,11 +13,13 @@
 
 // 只负责 代码的编译
 
-namespace LosServer {
+namespace LosServer
+{
 
 using namespace LosCom;
 
-class Compiler {
+class Compiler
+{
    public:
     Compiler();
     ~Compiler();

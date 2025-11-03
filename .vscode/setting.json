@@ -1,0 +1,13 @@
+{
+    "clangd.path": "clangd",
+    "clangd.arguments": [
+        "--background-index",
+        "--compile-commands-dir=${workspaceFolder}/build",
+        "--completion-style=detailed",
+        "--header-insertion=never"
+    ],
+    "C_Cpp.default.compilerPath": "clang++",
+    "C_Cpp.default.intelliSenseMode": "clang-x64",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "cmake.sourceDirectory": "/home/losangelous/LosAngelous/Project/LosOj/ojServer"
+}

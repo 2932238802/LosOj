@@ -1,3 +1,0 @@
-/home/losangelous/LosAngelous/Project/LosOj/build/CMakeFiles/Pococ.dir
-/home/losangelous/LosAngelous/Project/LosOj/build/CMakeFiles/edit_cache.dir
-/home/losangelous/LosAngelous/Project/LosOj/build/CMakeFiles/rebuild_cache.dir

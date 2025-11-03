@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{id}}. {{title}}</title>
+    <link rel="stylesheet" href="/static/one.css" />
+  </head>
+  <body data-question-id="{{id}}">
+    <nav class="main-nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">OJ Platform</a>
+        <ul class="nav-links">
+          <li><a href="/">首页</a></li>
+          <li><a href="/all_questions" class="active">题库</a></li>
+          <li><a href="/login">登录</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="problem-view-container">
+      <div class="problem-panel" id="problem-panel">
+        <div class="panel-content">
+          <div class="problem-header">
+            <h2>{{id}}. {{title}}</h2>
+          </div>
+          <div class="meta-info">
+            <span>难度: {{star}}</span>
+            <span>时间限制: {{cpu_limit}}ms</span>
+            <span>空间限制: {{mem_limit}}B</span>
+          </div>
+          <div class="description">
+            <div id="description-content">{{desc}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gutter"></div>
+
+      <div class="editor-panel" id="editor-panel">
+        <div class="editor-controls">
+          <div class="control-group">
+            <label for="theme-selector">代码风格</label>
+            <select id="theme-selector">
+              <optgroup label="亮色">
+                <option value="ace/theme/xcode">Xcode</option>
+                <option value="ace/theme/github">GitHub</option>
+                <option value="ace/theme/tomorrow">Tomorrow</option>
+                <option value="ace/theme/textmate">TextMate</option>
+              </optgroup>
+              <optgroup label="暗色">
+                <option value="ace/theme/monokai">Monokai</option>
+                <option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+                <option value="ace/theme/dracula">Dracula</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="control-group">
+            <label for="fontsize-selector">字体大小</label>
+            <select id="fontsize-selector">
+              <option value="12">12px</option>
+              <option value="14">14px</option>
+              <option value="16" selected>16px</option>
+              <option value="18">18px</option>
+              <option value="20">20px</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label for="fontfamily-selector">代码字体</label>
+            <select id="fontfamily-selector">
+              <option value="Fira Code">Fira Code</option>
+              <option value="JetBrains Mono">JetBrains Mono</option>
+              <option value="Consolas">Consolas</option>
+              <option value="Menlo">Menlo</option>
+              <option value="monospace">Monospace</option>
+            </select>
+          </div>
+        </div>
+        <div id="editor"></div>
+        <div class="actions">
+          <button class="btn btn-submit" id="submit-btn">提交代码</button>
+        </div>
+        <div class="result-panel" id="result-panel" style="display: none">
+          <h4>判定结果</h4>
+          <div id="result-content"></div>
+        </div>
+      </div>
+    </main>
+
+    <script type="text/template" id="initial-code">
+      {{header}}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var contentDiv = document.getElementById("description-content");
+        if (contentDiv) {
+          var rawDesc = contentDiv.textContent || contentDiv.innerText;
+          contentDiv.innerHTML = marked.parse(rawDesc);
+          contentDiv.style.display = "block";
+        }
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.9.6/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.9.6/ext-language_tools.js"></script>
+    <script src="https://unpkg.com/split.js/dist/split.min.js"></script>
+    <script src="/static/one.js"></script>
+  </body>
+</html>
